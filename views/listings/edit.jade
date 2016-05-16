@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    h1.
+        Listing ID #{listing._id}
+    form(action='/listings/#{listing._id}/edit',method='post',name='updatelisting',enctype='application/x-www-form-urlencoded')
+        p Title: 
+            input#inputTitle(type='text', value='#{listing.title}', name='title')
+        p Description: 
+            input#inputDescription(type='text', value='#{listing.description}', name='description')
+        p Is it Active?: 
+            input#inputIsActive(type='checkbox', name='isactive', checked=('#{listing.isactive}'==='true' ? "checked" : undefined))
+        p 
+            input(type='hidden',value='PUT',name='_method')
+        p 
+            button#btnSubmit(type='submit').
+                Update

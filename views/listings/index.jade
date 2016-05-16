@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    ul
+        - each listing, i in listings
+            li
+                = listing.id
+                = listing.title
+                = listing.description
+                = listing.isactive
+                = listing._id
+                form(action='/listings/#{listing._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p 
+                    a(href='/listings/#{listing._id}/edit') Edit
+                p
+                    a(href='/listings/#{listing._id}') Show

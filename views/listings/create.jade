@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h1.
+        #{title}
+    form#formAddBlob(name="addlisting",method="post",action="/listings")
+        p Title: 
+            input#inputTitle(type="text", placeholder="ex. Coffee Maker", name="title")
+        p Description:
+            input#inputDescription(type="test", placeholder="ex. New Coffee Maker", name="description")
+        p Is it Active?: 
+            input#inputIsActive(type="checkbox", name="isactive")
+        p
+            button#btnSubmit(type="submit") submit
